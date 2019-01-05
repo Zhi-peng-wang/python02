@@ -1,0 +1,6 @@
+- 创建项目
+- 编写item
+- spider
+- pipeline
+- 设置pipeline
+- 中间件，会使用selenium
