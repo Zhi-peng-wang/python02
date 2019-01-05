@@ -1,0 +1,31 @@
+# Scrapy
+- 中间件(DownloaderMiddlewares)
+    - 中间件时处于引擎和下载器中间的一层组件
+    - 可以有很多个，被按照顺序加载执行
+    - 作用是对发出的请求和返回的结果进行预处理
+    - 在middlewares文件
+    - 需要配置settings文件，以便生效
+    - 一般一个中间件完一项功能
+    - 必须实现一个或多个方法
+        - process_request(self, request, spider)
+            - 在request通过的时候被调用
+            - 必须返回None或Response或Request或 raise IgnoreRequest
+            - None:scrapy将继续处理该request
+            - Request:scrapy会停止调用process_request并重新调度返回的request
+            - Response:scrapy不会调用其它的process_request或者process_exception，直接将该结果
+            作为结果返回，同时调用process_response函数
+        - process_response(self, request, response, spider)
+            - 和process_request大同小异
+            - 每次返回结果的时候会自动调用
+            - 可以有多个，按顺序调用
+        - 案例代码
+            - 参看源码
+        - 设置settings
+            - 参看源码
+- 去重
+    - 为了防止爬虫陷入死循环，需要去重
+    - 即在spider中的parse函数中，返回Request的时候加上dont_filter=False参数
+- 如何在scrapy使用selenium
+    - 可以放入中间件中的process_request函数中
+    - 在函数中调用selenium，完成爬取后返回Response
+            
