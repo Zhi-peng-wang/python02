@@ -1,5 +1,6 @@
 from django.shortcuts import render
 from django.http import HttpResponse
+from django.core.urlresolvers import reverse
 
 # Create your views here.
 '''
@@ -20,3 +21,7 @@ def do_param2(request, pn):
 
 def extremParam(request, name):
     return HttpResponse('my name is {0}'.format(name))
+
+
+def revParse(request):
+    return  HttpResponse("your are url is {0}".format(reverse("wzp")))
