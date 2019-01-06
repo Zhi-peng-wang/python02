@@ -53,8 +53,36 @@
     - /search/page/432  中的432需要经常性变换
 
 # 4.url在app中处理
-    - 
+- 如果所有应用url都集中django1/urls.py,可能会导致文件的臃肿
+- 可以把urls具体功能逐渐分散到每个app中
+    - 从django, conf, urls导入 include
+    - 注意此时的RE部分写法
+    - 添加include导入
+- 使用方法
+    - 确保include被导入
+    - 写主路由的开头url
+    - 写子路由
+    - 编写views函数
+- 同样可以使用参数
         
+# 5.url中嵌套参数
+- 捕获某个参数的一部分
+- 例如url /index/page-3,需要捕获数字3为参数
+        
+        url(r'index_1/(page-(\d+)/)?$', tv.myindex_1), #不太好
+        url(r'index_2/(?:page-(?<page_number>\d+)/)?$', tv.myindex_2), 
+            
+    - 上述俩个例子会得到俩个参数，但是?: 表示忽略此参数
+
+# 6.传递额外的参数
+- 参数不仅仅来自以url，还可能是我们自己定义的内容
+        
+        url(r'^extrem/$', tv.extremParam, {'name':'wzp'}),
+        
+- 附加参数同样适用于include语句，此时对include内所有都添加
+
+# 7.url的反向解析
+- 防止硬编码
     
     
     

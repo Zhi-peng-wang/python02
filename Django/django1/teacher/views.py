@@ -12,3 +12,11 @@ def do_normalmap(request):
 def withparam(request, year, month):
     return  HttpResponse("today is {0} {1}".format(year, month))
 
+def do_app(request):
+    return HttpResponse("成功！")
+
+def do_param2(request, pn):
+    return HttpResponse("page is {0}".format(pn))
+
+def extremParam(request, name):
+    return HttpResponse('my name is {0}'.format(name))
