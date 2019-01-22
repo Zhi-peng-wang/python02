@@ -71,3 +71,9 @@ def render4_test(request):
     rsp = render_to_response("render2.html", context=({"name": "wzp123"}))
 
     return rsp
+
+def get404(r):
+
+    from django.views import defaults
+
+    return defaults.page_not_found(r, template_name="render.html")

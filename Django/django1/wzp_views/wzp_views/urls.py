@@ -26,4 +26,6 @@ urlpatterns = [
     url(r'^render3_test/', v.render3_test),
 
     url(r'^render_to_response/', v.render4_test),
+
+    url(r'^get404/', v.get404),
 ]
