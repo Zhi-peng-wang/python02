@@ -12,4 +12,14 @@ urlpatterns = [
     url(r'^teacher/', v.teacher),
 
     url(r'^execption/', v.execption),
+
+
+    url(r'^v10_1/', v.v10_1),
+    url(r'^v10_2/', v.v10_2),
+    url(r'^v11/', v.v11, name="v11"),
+
+    url(r'^v8/', v.v8_get),
+    url(r'^v9_get/', v.v9_get),
+    url(r'^v9_post/', v.v9_post),
+    url(r'^render_test/', v.render_test),
 ]
