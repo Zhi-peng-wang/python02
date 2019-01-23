@@ -7,6 +7,7 @@
         
 - pycharm启动
     - 需要配置
+    - runserver
     
 # 路由系统-urls
 - 创建app
@@ -337,15 +338,16 @@
         - 切换数据库在settings中进行设置 
     
            # django 连接 mysql
-            DATABASES = [
-              'default' = {
-                'ENGINE' : 'django.db.backends.mysql',
-                'NAME' : '数据库名',
-                'PASSWORD': '数据库密码',
-                'HOST': '127.0.0.1',
-                'PORT': '3306',
-              }
-            ]  
+            DATABASES = {
+                'default': {
+                    'ENGINE': 'django.db.backends.mysql',
+                    'NAME': 'wzp',
+                    'USER': 'root',
+                    'PASSWORD': 'qwe123',
+                    'HOST': '127.0.0.1',
+                    'PORT': '3306',
+                }
+            } 
         - 需要在项目文件下的__init__文件中导入pymysql包
         
                 ```
@@ -373,21 +375,21 @@
     1. 在命令行中,生成数据迁移的语句(生成sql语句)
 
             ```
-            python3 manage.py makemigrations
+            python manage.py makemigrations
             ```
             
     2. 在命令行中,输入数据迁移的指令
 
             ```
-            python3 manage.py migrate
+            python manage.py migrate
             ```
 
             ps : 如果迁移中出现没有变化或者报错,可以尝试强制迁移
 
             ```
             # 强制迁移命令
-            python3 manage.py makemigrations 应用名
-            python3 manage.py migrate 应用名
+            python manage.py makemigrations 应用名
+            python manage.py migrate 应用名
             ```
     3. 对于默认数据库， 为了避免出现混乱，如果数据库中没有数据，每次迁移前可以把系统
     自带的sqlite3数据库删除
@@ -498,14 +500,21 @@ s.save()
             >>> m = Manager.objects.create(manager_id=20, manager_name="erna", my_school=ss[0])
     - query:
         - 有子表查母表： 由子表的属性直接提取信息
+        
+                 >>> Manager.objects.get(manager_name="张三").my_school.school_name
+                    '北京大学'
         - 由母表查子表：使用双下划线 
         
                  >>> s = School.objects.get(manager__manager_name="dana")
-                    >>> s
+                 >>> s
                     <School: nanjingtulingxueyuan>
     - change:
-        - 单个修改使用save     
-        - 批量修改使用update
+        - 单个修改使用save    
+         
+             >>> s.school_name = "中央清华"
+             >>> s.save()
+             >>> s
+        - 批量修改使用update   ss.update(school_name="某某学校")
         - 无论对子表还是对母表的修改
     - delete： 直接使用delete还是删除                   
     
