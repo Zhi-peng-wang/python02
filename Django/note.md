@@ -327,7 +327,7 @@
     - 所有需要使用ORM的class都必须是 models.Model 的子类
     - class中的所有属性对应表格中的字段
     - 字段的类型都必须使用 modles.xxx 不能使用python中的类型
-    - 在django种，Models负责跟数据库交互
+    - 在django中，Models负责跟数据库交互
 - django链接数据库
     - 自带默认数据库Sqllite3
         - 关系型数据库
