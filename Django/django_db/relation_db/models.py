@@ -16,3 +16,17 @@ class Manager(models.Model):
 
     def __str__(self):
         return self.manager_name
+
+class Teacher(models.Model):
+    teacher_name = models.CharField(max_length=10)
+    my_school = models.ForeignKey("School")
+
+    def __str__(self):
+        return self.teacher_name
+
+class Student(models.Model):
+    student_name = models.CharField(max_length=10)
+    teachers = models.ManyToManyField("Teacher")
+
+    def __str__(self):
+        return self.student_name
