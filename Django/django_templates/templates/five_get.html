@@ -1,0 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>five_get</title>
+</head>
+<body>
+<form action="/five_post/" method="post">
+    <!--用来防止伪站攻击-->
+    {% csrf_token %}
+    用户名：<input type="text" placeholder="请输入您的用户名" name="username"><br>
+    密码：<input type="password" name="password"><br>
+    <input type="submit" value="提交">
+</form>
+</body>
+</html>

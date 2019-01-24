@@ -1,7 +1,7 @@
 # 创建第一个django程序
 - 命令行启动
 
-        djiango-admin startproject 项目名称
+        django-admin startproject 项目名称
         cd 项目名称
         python manage.py runserver
         
@@ -527,7 +527,7 @@ s.save()
         
      Add:
         - 跟一对一方法类似，通过create和new来添加
-        - create: 把属性都填满，然后不需要手动保存
+        - create:1把属性都填满，然后不需要手动保存
         - new: 可以属性或者参数为空，必须用save保存
     Query: 
         - 以学校和老师的例子为准
@@ -542,9 +542,14 @@ s.save()
     - 比如典型例子就是老师和学生的关系
     - 使用上，在任意一方，使用ManyToMany定义，只需要定义一边
     - Add:
+        - 在学生添加之后（防止id不明错误）
         - 添加老师，则在student.teachers.add()
     - Query:
         - 跟一对多类似，使用_set查询
+        - student是Class:Student的小写
+           >>> t1.student_set.all()
+           [<Student: 小王同学>]
+
 
 
 # 模板系统
@@ -582,8 +587,6 @@ s.save()
         {% endif %}}
         
 - 案例four
-
-
 ## csrf标签
 - csrf:跨站请求伪造
 -  在提交表单的时候，表单页面需要加上 {% csrf_token %},

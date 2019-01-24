@@ -20,4 +20,12 @@ def three(request):
 def four(request):
     ct = dict()
     ct['name'] = '梓鹏'
-    return render(request,template_name='four.html',context=ct)
+    return render(request, template_name='four.html',context=ct)
+
+def five_get(request):
+    return render(request, template_name='five_get.html')
+
+def five_post(request):
+    print(request.POST)
+    return render(request, template_name='one.html')
+
