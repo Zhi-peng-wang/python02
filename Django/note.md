@@ -598,7 +598,7 @@ s.save()
 - 用来保存用户比较敏感的信息
 - 属于request的一个属性
 - 常用操作：
-    - request.session.get(key, defaultValue)
+    - request.session.get(key, defaultValue)   key表示查询的值，defaultValue表示查询不到返回的默认值
     - request.session.clear():清除全部
     - request.session[key] = value :赋值
     - request.session.flush(): 删除当前回话切清除回话的cookie
@@ -620,10 +620,15 @@ s.save()
 
 # admin
 ## 1. 创建Admin
-- settings中填入app`
+- settings中填入app  注册app
 - 打开urls.py
-- 创建超级用户
+- 创建超级用户 python manage.py createsuperuser
 - 配置settings文件
+- 配置中文相关
+     
+     改相关setting配置文件
+     LANGUAGE_CODE = 'zh-Hans'
+     TIME_ZONE = 'Asia/Shanghai'
 
 ## 2. 绑定管理模型
 
