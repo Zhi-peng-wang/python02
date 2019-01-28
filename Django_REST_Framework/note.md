@@ -16,7 +16,7 @@
 - DjangoRestFramework（DRF）
     -  https://q1mi.github.io/Django-REST-framework-documentation/
     - 安装：pip install djangorestframework
-    - 版本问题： version3.7是基于1.xx版本django，之后是2.xx版本django
+    - 版本问题： version3.7是基于1.xx版本django，之后version3.7以上是2.xx版本django
     - django_filter依赖djangorestframework 3.7 
 - DRF的主要任务
 - 案例TlxyDRF
