@@ -8,7 +8,7 @@ from case01 import views
 
 router = routers.SimpleRouter()
 
-router.register(r's', views.StudentVS)
+router.register(r'student', views.StudentVS)
 
 urlpatterns = [
     # Examples:
